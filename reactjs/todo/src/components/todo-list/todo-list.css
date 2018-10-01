@@ -1,0 +1,10 @@
+ul.todos {
+    list-style: none;
+    padding: 0;
+}
+
+ul.todos li {
+    padding: 5px;
+    text-align: left;
+    border-bottom:1px solid #707070;
+}

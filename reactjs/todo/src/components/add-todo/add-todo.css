@@ -1,0 +1,19 @@
+aside.add-todo {
+    padding: 5px;
+}
+
+aside.add-todo input {
+    width: 80%;
+    border: 1px inset #909090;
+    height: 40px;
+    padding-left: 10px;
+}
+
+aside.add-todo button {
+    width: 40px;
+    color: #fff;
+    background-color: #338AFF;
+    height: 40px;
+    border:none;
+    height:44px;
+}
