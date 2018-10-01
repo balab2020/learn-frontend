@@ -1,41 +1,30 @@
 import React, { Component } from 'react';
 import './add-todo.css';
-import TodoModel from '../../models/todo';
-import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import addTodo from '../../actions/add-todo';
 
-export default class AddTodo extends Component {
+const AddTodo = ({ dispatch }) => {
 
-    constructor(props) {
-        super(props);
-        this.action = '';
-        this.setAction = this.setAction.bind(this);
-    }
+    //todo:should be avoided, hack to proceed now
+    let input = React.createRef();
 
-    setAction(evt) {
-        this.action = evt.target.value;
-    }
-
-    resetAction(){
-        this.action = '';
-        const component = ReactDOM.findDOMNode(this);
-        component.querySelector('input').value = '';
-    }
-
-    addTodo() {
-        if (this.action) {
-            this.props.addTodo(new TodoModel(this.action));
-           this.resetAction();
+    const dispatchAdd = _ => {
+        if (!input.current.value.trim()) {
+            return
         }
-    }
+        dispatch(addTodo(input.current.value));
+        input.current.value = "";
+    };
 
-    render() {
-        return (
-            <aside className="add-todo">
-                <input type="text" name='action' onChange={this.setAction}></input>
-                <button className="btn btn-primary" onClick={this.addTodo.bind(this)}>
-                    <span>Add</span>
-                </button>
-            </aside>
-        );
-    }
-} 
+    return (
+        <aside className="add-todo">
+            <input type="text" ref={input}></input>
+            <button className="btn btn-primary" onClick={dispatchAdd}>
+                <span>Add</span>
+            </button>
+        </aside>
+    );
+};
+
+//connect the component to store
+export default connect()(AddTodo);
