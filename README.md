@@ -27,7 +27,6 @@ Let me choose frameworks to experiment.
 - Polymer JS
 
 ### Functional Programming
-- Loadah
 - Ramda
 
 ### Reactive Programming
@@ -35,7 +34,7 @@ Let me choose frameworks to experiment.
 
 ### Test Drivent Development
 - Jasmine
-- QUnit
+- Jest
 
 ## Task Automation
 - Grunt JS
